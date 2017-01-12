@@ -9,24 +9,9 @@
 </head>
 <body ng-app="vendingApp" ng-controller="VendingAppController">
 	
-	<div class="no-float" style="margin-left: 140px;">
+	<div class="no-float">
 		<h3>Drop some coins into the coin slot to purchase the goods!</h3>
 		<h4>You have ${{ CustomerPurseValue.formatCurrency(2) }} in change to spend.</h4>
-	</div>
-
-	<div class="lefty">
-	  <ul class="LineItem">
-	    <li ng-repeat="coin in coins">
-	     	<img
-	     	 id="{{coin.name}}" 
-		     size="{{coin.size}}" 
-		     weight="{{coin.weight}}" 
-		     draggable="true"
-		     ondragstart="doDrag(event)"
-	     	 src="img/coin_{{ coin.name.toLowerCase() }}.png" onerror="imgError(event)"
-	     	 style="width: {{ coin.size*100 }}px;" alt="{{ coin.name }}" />
-	    </li>
-	  </ul>
 	</div>
 
 	<div id="VendingMachine" class="lefty">
@@ -70,6 +55,21 @@
 		<div id="VendingMachine-Dispenser">
 			<img id="VendingMachine-Dispenser-Item" src="img/blank.gif" />
 		</div>
+	</div>
+
+	<div class="lefty">
+	  <ul class="LineItem">
+	    <li ng-repeat="coin in coins">
+	     	<img
+	     	 id="{{coin.name}}" 
+		     size="{{coin.size}}" 
+		     weight="{{coin.weight}}" 
+		     draggable="true"
+		     ondragstart="doDrag(event)"
+	     	 src="img/coin_{{ coin.name.toLowerCase() }}.png" onerror="imgError(event)"
+	     	 style="width: {{ coin.size*100 }}px;" alt="{{ coin.name }}" />
+	    </li>
+	  </ul>
 	</div>
 
 </body>
