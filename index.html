@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="vendingApp">
+<head>
+  <script src="js/angular/angular.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/data.js"></script>
+
+  <link type="text/css" rel="stylesheet" media="screen" href="css/index.css" />
+</head>
+<body ng-app="vendingApp" ng-controller="VendingAppController">
+	
+	<div class="no-float" style="margin-left: 140px;">
+		<h3>Drop some coins into the coin slot to purchase the goods!</h3>
+		<h4>You have ${{ CustomerPurseValue.formatCurrency(2) }} in change to spend.</h4>
+	</div>
+
+	<div class="lefty">
+	  <ul class="LineItem">
+	    <li ng-repeat="coin in coins">
+	     	<img
+	     	 id="{{coin.name}}" 
+		     size="{{coin.size}}" 
+		     weight="{{coin.weight}}" 
+		     draggable="true"
+		     ondragstart="doDrag(event)"
+	     	 src="img/coin_{{ coin.name.toLowerCase() }}.png" onerror="imgError(event)"
+	     	 style="width: {{ coin.size*100 }}px;" alt="{{ coin.name }}" />
+	    </li>
+	  </ul>
+	</div>
+
+	<div id="VendingMachine" class="lefty">
+		
+		<div id="VendingMachine-Marquee"><div>{{ VendingMessage }}</div></div>
+		
+		<div id="VendingMachine-Window">
+			<div ng-repeat="product in products" ng-click="purchase(product.name)"
+			 id="{{product.name}}"
+			 value="{{product.value}}">
+			 	<div class="no-float Product-Price">
+	      	{{ product.name }} ${{ product.value.formatCurrency(2) }} ea.
+	      </div>
+	      <div id="{{ product.name }}" class="no-float Product-Row">
+		      <img src="img/product_{{ product.name.toLowerCase() }}.png" alt="{{ product.name }}" />
+		      <img src="img/product_{{ product.name.toLowerCase() }}.png" alt="{{ product.name }}" />
+		      <img src="img/product_{{ product.name.toLowerCase() }}.png" alt="{{ product.name }}" />
+		      <div class="no-float"></div>
+		    </div>
+	    </div>
+		</div>
+
+		<div 
+		 id="VendingMachine-CoinSlot"
+		 ondrop="doDrop(event)" 
+		 ondragover="allowDrop(event)" 
+		 ondragenter="doDragEnter(event)"
+		 ondragleave="doDragLeave(event)"></div>
+		
+		<div id="VendingMachine-RefundSlot" ng-click="do_Refund()"></div>
+		
+		<div id="VendingMachine-ChangeTray" ng-click="do_TakeChange()">
+			<div class="ChangeTray-Info">
+				<img id="VendingMachine-ChangeTray-ChangeImg" src="img/blank.gif" alt="Change" />
+				<div style="padding-top: 6px;">
+					${{ CoinTrayTotal.formatCurrency(2) }}
+				</div>
+			</div>
+		</div>
+
+		<div id="VendingMachine-Dispenser">
+			<img id="VendingMachine-Dispenser-Item" src="img/blank.gif" />
+		</div>
+	</div>
+
+</body>
+</html>

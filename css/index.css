@@ -1,0 +1,186 @@
+/* Vending Machine App Styles */
+
+body {
+	margin: 0;
+	padding: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #fff;
+	background-color: #222;
+}
+
+.no-float {
+	float: none;
+	clear: both;
+}
+
+.lefty {
+	float: left;
+	margin: 3px;
+}
+.righty {
+	float: right;
+	margin: 3px;
+}
+
+.center-it {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#VendingMachine {
+	position: relative;
+	width: 498px;
+	height: 639px;
+	margin: 0;
+	padding: 0;
+	background: url('../img/vending-machine.png') no-repeat 0 0;
+}
+
+#VendingMachine-Marquee {
+	position: relative;
+	left: 37px;
+	top: 19px;
+	width: 424px;
+	height: 47px;
+	color: #FF9B00;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: default;
+}
+#VendingMachine-Marquee div {
+	position: relative;
+	left: 0;
+	top: 0;
+	padding-top: 11px;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+#VendingMachine-Window {
+	position: relative;
+	float: left;
+	left: 40px;
+	top: 29px;
+	width: 323px;
+	height: 395px;
+	cursor: default;
+}
+
+#VendingMachine-CoinSlot {
+	position: relative;
+	float: left;
+	left: 49px;
+	top: 34px;
+	width: 86px;
+	height: 145px;
+	border: 3px solid transparent;
+}
+
+#VendingMachine-RefundSlot {
+	position: relative;
+	float: left;
+	left: 49px;
+	top: 39px;
+	width: 83px;
+	height: 49px;
+	cursor: pointer;
+	border: 3px solid transparent;
+}
+#VendingMachine-RefundSlot:hover {
+	border-color: #72CE7B;
+}
+
+#VendingMachine-ChangeTray {
+	position: relative;
+	float: left;
+	left: 49px;
+	top: 105px;
+	width: 83px;
+	height: 111px;
+	cursor: pointer;
+	border: 3px solid transparent;
+}
+#VendingMachine-ChangeTray:hover {
+	border-color: #72CE7B;
+}
+
+#VendingMachine-Dispenser {
+	position: relative;
+	float: none;
+	clear: both;
+	left: 209px;
+	top: 50px;
+	width: 114px;
+	height: 114px;
+	border: 3px solid transparent;
+}
+#VendingMachine-Dispenser img {
+	width: 90px;
+	height: 90px;
+	padding-top: 14px;
+	padding-left: 14px;
+}
+
+.Product-Row {
+	border: 3px solid transparent;
+	cursor: pointer;
+}
+.Product-Row:hover {
+	border-color: #72CE7B;
+}
+.Product-Row img {
+	float: left;
+	margin-left: 10px;
+}
+
+.ChangeTray-Info {
+	padding-top: 26px; 
+	text-align: center;
+	color: #000;
+}
+.ChangeTray-Info img {
+	width: 72px;
+	height: 50px;
+}
+
+.Product-Price {
+	margin-top: 8px;
+	padding: 3px;
+	background-color: #9B7D30;
+	color: #fff;
+	border-top: 2px solid #F5D171;
+	border-bottom: 2px solid #55461C;
+}
+
+.LineItem {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	z-index: 10000;
+}
+.LineItem li {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 0;
+	padding: 8px 10px 8px 10px;
+	list-style: none;
+	text-align: center;
+	background-color: transparent;
+	font-size: 1em;
+	text-shadow: 2px 2px 8px #000;
+	color: #fff;
+	cursor: pointer;
+	/*- - - - - - - - - - - - - - - - - - - - */
+  -webkit-transition: background 0.3s linear;
+  -moz-transition: background 0.3s linear;
+  -ms-transition: background 0.3s linear;
+  -o-transition: background 0.3s linear;
+  transition: background 0.3s linear;
+}
+.LineItem li:hover {
+	background-color: #3EAFFF;
+}
